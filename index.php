@@ -87,11 +87,11 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
                 echo "<th>Email</th>";
                 echo "<th>Job</th>";
                 echo "<th>Date</th></tr>";
-                foreach($registrants as $registrant) {
-                    echo "<tr><td>".$registrant['name']."</td>";
-                    echo "<td>".$registrant['email']."</td>";
-                    echo "<td>".$registrant['job']."</td>";
-                    echo "<td>".$registrant['date']."</td></tr>";
+                foreach($registrants as $row) {
+                    echo "<tr><td>".$row['name']."</td>";
+                    echo "<td>".$row['email']."</td>";
+                    echo "<td>".$row['job']."</td>";
+                    echo "<td>".$row['date']."</td></tr>";
                 }
                 echo "</table>";
             } else {
