@@ -73,9 +73,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         } catch(Exception $e) {
             echo "Failed: " . $e;
         }
-	
-
-	    /*
+	    
         echo "<h3>Your're registered!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
@@ -104,39 +102,10 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	   
         }
     }
-    */
-?>
-<table border="1" cellspacing="0" cellpadding="0">
-        <thead>
-            <tr>
-                <th>name</th>
-                <th>email</th>
-                <th>job</th>
-                <th>date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $sql = "SELECT * FROM Registration";
-            $result = $connect->query($sql);
- 
-            //if($result > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "
-                    <tr>
-                        <td>".$row['name']." </td>
-                        <td>".$row['email']."</td>
-                        <td>".$row['job']."</td>
-                        <td>".$row['date']."</td>
-                    </tr>
-                    ";
-                }
-            //} 
-            //else {
-            //    echo "<tr><td colspan='5'><center>No Data Avaliable</center></td></tr>";
-            //}
+} 
+            else {
+                echo "<tr><td colspan='5'><center>No Data Avaliable</center></td></tr>";
+            }
             ?>
-        </tbody>
-?>
  </body>
  </html>
