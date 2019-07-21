@@ -62,7 +62,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
             $job = $_POST['job'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO Registration (name, email, job, date) 
+            $sql_insert = "INSERT INTO test (name, email, job, date) 
                         VALUES (?,?,?,?)";
             //$stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
@@ -77,7 +77,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         echo "<h3>Your're registered!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
-            $sql_select = "SELECT * FROM Registration";
+            $sql_select = "SELECT * FROM test";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
