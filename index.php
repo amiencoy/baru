@@ -37,7 +37,7 @@ catch (PDOException $e) {
 }
 
 // SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "xperimental@testestes", "pwd" => "{Bandar05}", "Database" => "test", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$connectionInfo = array("UID" => "xperimental@testestes", "pwd" => "Bandar05", "Database" => "test", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:testestes.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
@@ -73,7 +73,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
         } catch(Exception $e) {
             echo "Failed: " . $e;
         }
-	    
+
         echo "<h3>Your're registered!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
@@ -87,11 +87,11 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
                 echo "<th>Email</th>";
                 echo "<th>Job</th>";
                 echo "<th>Date</th></tr>";
-                foreach($registrants as $row) {
-                    echo "<tr><td>".$row['name']."</td>";
-                    echo "<td>".$row['email']."</td>";
-                    echo "<td>".$row['job']."</td>";
-                    echo "<td>".$row['date']."</td></tr>";
+                foreach($registrants as $registrant) {
+                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<td>".$registrant['email']."</td>";
+                    echo "<td>".$registrant['job']."</td>";
+                    echo "<td>".$registrant['date']."</td></tr>";
                 }
                 echo "</table>";
             } else {
@@ -99,13 +99,8 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
             }
         } catch(Exception $e) {
             echo "Failed: " . $e;
-	   
         }
     }
-} 
-            else {
-                echo "<tr><td colspan='5'><center>No Data Avaliable</center></td></tr>";
-            }
-            ?>
+ ?>
  </body>
  </html>
